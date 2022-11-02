@@ -16,12 +16,12 @@ namespace FinalProject
         {
             InitializeComponent();
         }
-        bool characterLeft = false;
-        bool characterRight = false;
-        bool characterDown = false;
-        bool characterUp = false;
 
-        int playerSpeed = 5;
+        bool characterLeft, characterRight, characterUp, characterDown;
+
+        int playerSpeed = 2;
+
+        int keyCount = 0;
 
         
 
@@ -52,17 +52,17 @@ namespace FinalProject
             }//end of character movement
 
             //Make walls solid
-            foreach(Control x in this.Controls)
+            foreach (Control x in this.Controls)
             {
-                if(x is PictureBox)
+                if (x is PictureBox)
                 {
-                    if((string)x.Tag == "Wall")
+                    if ((string)x.Tag == "Wall")
                     {
                         if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterLeft == true)
                         {
                             playerCharacter.Left += playerSpeed;
                         }
-                        else if(playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterRight == true)
+                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterRight == true)
                         {
                             playerCharacter.Left -= playerSpeed;
                         }
@@ -80,11 +80,11 @@ namespace FinalProject
             }//end of walls
 
             //Make roof invisible on entry of room
-            foreach(Control x in this.Controls)
+            foreach (Control x in this.Controls)
             {
-                if(x is PictureBox)
+                if (x is PictureBox)
                 {
-                    if((string)x.Tag == "Roof")
+                    if ((string)x.Tag == "Roof")
                     {
                         if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
                         {
@@ -106,13 +106,29 @@ namespace FinalProject
                         }
                     }
                 }
-            }//end of hide roof
+            }//end of show roof
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox)
+                {
+                    if ((string)x.Tag == "Key")
+                    {
+                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            x.Visible = false;
+                            keyCount += 1;
+                            inventorySlot1.BackColor = Color.Yellow;
+                        }
+                    }
+                }
+            }//end of show roof
 
 
         }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            //get key inputs for character movement
             if (e.KeyCode == Keys.Left)
             {
                 characterLeft = true;
@@ -133,6 +149,7 @@ namespace FinalProject
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
+            //stops moving when you lift directional key
             if (e.KeyCode == Keys.Left)
             {
                 characterLeft = false;
@@ -159,7 +176,7 @@ namespace FinalProject
             bool characterDown = false;
             bool characterUp = false;
 
-            int playerSpeed = 10;
+            int playerSpeed = 5;
 
             playerCharacter.Left = 422;
             playerCharacter.Top = 561;
