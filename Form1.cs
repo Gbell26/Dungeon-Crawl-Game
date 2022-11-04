@@ -17,7 +17,7 @@ namespace FinalProject
             InitializeComponent();
         }
 
-        bool characterLeft, characterRight, characterUp, characterDown, keyActivate;
+        bool characterLeft, characterRight, characterUp, characterDown, keyActivate, doorUnLock;
 
         int playerSpeed = 2;
 
@@ -130,46 +130,62 @@ namespace FinalProject
                     {
                         if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterLeft == true)
                         {
-                            if (keyActivate == true && keyCount < 1)
+                            if (keyActivate == true && keyCount >= 1)
                             {
-                                playerCharacter.Left += playerSpeed;
+                                doorUnLock = true;
                             }
-                            else if(keyActivate == true && keyCount >= 1)
+                            if(doorUnLock == true)
                             {
                                 x.Visible = false;
+                            }
+                            else
+                            {
+                                playerCharacter.Left += playerSpeed;
                             }
                         }
                         else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterRight == true)
                         {
-                            if (keyActivate == true && keyCount < 1)
+                            if (keyActivate == true && keyCount >= 1)
                             {
-                                playerCharacter.Left -= playerSpeed;
+                                doorUnLock = true;
                             }
-                            else if(keyActivate == true && keyCount >= 1)
+                            if (doorUnLock == true)
                             {
                                 x.Visible = false;
+                            }
+                            else
+                            {
+                                playerCharacter.Left -= playerSpeed;
                             }
                         }
                         else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterUp == true)
                         {
-                            if (keyActivate == true && keyCount < 1)
+                            if (keyActivate == true && keyCount >= 1)
                             {
-                                playerCharacter.Top += playerSpeed;
+                                doorUnLock = true;
                             }
-                            else if (keyActivate == true && keyCount >= 1)
+                            if (doorUnLock == true)
                             {
                                 x.Visible = false;
+                            }
+                            else
+                            {
+                                playerCharacter.Top += playerSpeed;
                             }
                         }
                         else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterDown == true)
                         {
-                            if (keyActivate == true && keyCount < 1)
+                            if (keyActivate == true && keyCount >= 1)
                             {
-                                playerCharacter.Top -= playerSpeed;
+                                doorUnLock = true;
                             }
-                            else if (keyActivate == true && keyCount >= 1)
+                            if (doorUnLock == true)
                             {
                                 x.Visible = false;
+                            }
+                            else
+                            {
+                                playerCharacter.Top -= playerSpeed;
                             }
 
                         }
@@ -241,7 +257,7 @@ namespace FinalProject
             }
             if (e.KeyCode == Keys.Space)
             {
-                keyActivate = true;
+                keyActivate = false;
             }
 
 
