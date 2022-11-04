@@ -17,14 +17,11 @@ namespace FinalProject
             InitializeComponent();
         }
 
-        bool characterLeft, characterRight, characterUp, characterDown;
+        bool characterLeft, characterRight, characterUp, characterDown, keyActivate;
 
         int playerSpeed = 2;
 
         int keyCount = 0;
-
-        
-
 
         private void playerMoveTime_Tick(object sender, EventArgs e)
         {
@@ -49,7 +46,8 @@ namespace FinalProject
             {
                 playerCharacter.Top += playerSpeed;
 
-            }//end of character movement
+            }
+            //end of character movement
 
             //Make walls solid
             foreach (Control x in this.Controls)
@@ -124,6 +122,62 @@ namespace FinalProject
                 }
             }//end of show roof
 
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox)
+                {
+                    if ((string)x.Tag == "Door")
+                    {
+                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterLeft == true)
+                        {
+                            if (keyActivate == true && keyCount < 1)
+                            {
+                                playerCharacter.Left += playerSpeed;
+                            }
+                            else if(keyActivate == true && keyCount >= 1)
+                            {
+                                x.Visible = false;
+                            }
+                        }
+                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterRight == true)
+                        {
+                            if (keyActivate == true && keyCount < 1)
+                            {
+                                playerCharacter.Left -= playerSpeed;
+                            }
+                            else if(keyActivate == true && keyCount >= 1)
+                            {
+                                x.Visible = false;
+                            }
+                        }
+                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterUp == true)
+                        {
+                            if (keyActivate == true && keyCount < 1)
+                            {
+                                playerCharacter.Top += playerSpeed;
+                            }
+                            else if (keyActivate == true && keyCount >= 1)
+                            {
+                                x.Visible = false;
+                            }
+                        }
+                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterDown == true)
+                        {
+                            if (keyActivate == true && keyCount < 1)
+                            {
+                                playerCharacter.Top -= playerSpeed;
+                            }
+                            else if (keyActivate == true && keyCount >= 1)
+                            {
+                                x.Visible = false;
+                            }
+
+                        }
+
+                    }
+                }
+            }//End of Door code
+
 
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -132,19 +186,38 @@ namespace FinalProject
             if (e.KeyCode == Keys.Left)
             {
                 characterLeft = true;
+                characterRight = false;
+                characterUp = false;
+                characterDown = false;
             }
             else if (e.KeyCode == Keys.Right)
             {
                 characterRight = true;
+                characterLeft = false;
+                characterUp = false;
+                characterDown = false;
             }
             else if (e.KeyCode == Keys.Up)
             {
                 characterUp = true;
+                characterLeft = false;
+                characterRight = false;
+                characterDown = false;
             }
             else if (e.KeyCode == Keys.Down)
             {
                 characterDown = true;
+                characterLeft = false;
+                characterRight = false;
+                characterUp = false;
+    
             }
+
+            if(e.KeyCode == Keys.Space)
+            {
+                keyActivate = true;
+            }
+            
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -166,8 +239,12 @@ namespace FinalProject
             {
                 characterDown = false;
             }
+            if (e.KeyCode == Keys.Space)
+            {
+                keyActivate = true;
+            }
 
-            
+
         }
         private void RestartGame()
         {
