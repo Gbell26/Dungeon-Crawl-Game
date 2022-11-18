@@ -19,8 +19,17 @@ namespace FinalProject
         }
 
         bool characterLeft, characterRight, characterUp, characterDown, keyActivate, doorUnLock;
+        int characterHealth = 100;
+        int monsterSpeed = 3;
+        Random random = new Random();
+        bool weaponequip = true;
+        bool sheild = false;
+        int enemyHealth = 100;
 
-        int playerSpeed = 2;
+
+        int changeDir = 0;
+
+        int playerSpeed = 5;
 
         private void doorTime_Tick(object sender, EventArgs e)
         {
@@ -31,6 +40,11 @@ namespace FinalProject
                 Door2.Visible = true;
                 
             }
+        }
+
+        private void changeDirection_Tick(object sender, EventArgs e)
+        {
+            changeDir = random.Next(7);
         }
 
         int keyCount = 0;
@@ -60,6 +74,121 @@ namespace FinalProject
 
             }
             //end of character movement
+
+
+            //enemy movement
+            
+            switch (changeDir)
+            {
+                //right movements
+                case 0:
+                    monster.Left += monsterSpeed;
+                    break;
+                case 1:
+                    monster.Top -= monsterSpeed;
+                    monster.Left += monsterSpeed;
+                    break;
+                case 2:
+                    monster.Top += monsterSpeed;
+                    break;
+                case 3:
+                    monster.Top -= monsterSpeed;    
+                    break;
+                case 4:
+                    monster.Left -= monsterSpeed;
+                    break;
+                case 5:
+                    monster.Top += monsterSpeed;
+                    monster.Left -= monsterSpeed;
+                    break;
+                case 6:
+                    monster.Top -= monsterSpeed;
+                    monster.Left -= monsterSpeed;
+                    break;
+            }
+            /*
+            if (monster.Left <= playerCharacter.Left)
+            {
+                monster.Left += monsterSpeed;
+            }
+            else if (monster.Left >= playerCharacter.Right)
+            {
+                monster.Left -= monsterSpeed;
+            }
+
+            if (monster.Top <= playerCharacter.Top)
+            {
+                monster.Top += monsterSpeed;
+            }
+            else if (monster.Top >= playerCharacter.Top)
+            {
+                monster.Top -= monsterSpeed;
+            }//end of enemy movement
+            */
+            //Health
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox)
+                {
+                    if ((string)x.Tag == "enemy")
+                    {
+                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            if (weaponequip == false)
+                            {
+                                if (sheild == false)
+                                {
+                                    playerCharacter.BackColor = Color.Red;
+                                    characterHealth -= 1;
+                                }
+                            }
+                            else if (weaponequip == true)
+                            {
+                                x.BackColor = Color.Red;
+                                enemyHealth -= 1;
+                            }
+                        }
+                        else
+                        {
+                            playerCharacter.BackColor = Color.Blue;
+                        }
+                    }
+                }
+            }
+            if (characterHealth <= 0)
+            {
+                playerMoveTime.Enabled = false;
+                MessageBox.Show("You Died", "sorry");
+
+            }
+            if (enemyHealth <= 0)
+            {
+                monster.Visible = false;
+            }
+            healthLabel.Text = characterHealth.ToString();
+
+            //end of health
+            //monster boundarys(might need to go into new timer)
+            if (monster.Left >= this.ClientSize.Width)
+            {
+                changeDir = 4;
+            }
+
+            if (monster.Left <= 0)
+            {
+                changeDir = 0;
+            }
+
+            if (monster.Top >= this.ClientSize.Height)
+            {
+                changeDir = 3;
+            }
+
+            if (monster.Top <= 0)
+            {
+                changeDir = 2;
+            }
+            //end of monster boundaries
 
             //Make walls solid
             foreach (Control x in this.Controls)
@@ -100,24 +229,13 @@ namespace FinalProject
                         {
                             x.Visible = false;
                         }
-                    }
-                }
-            }//end of hide roof
-
-           
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
-                {
-                    if ((string)x.Tag == "Roof")
-                    {
-                        if (!playerCharacter.Bounds.IntersectsWith(x.Bounds))
+                        else
                         {
-                            x.Visible = true;
+                            x.Visible=true;
                         }
                     }
                 }
-            }//end of show roof
+            }//end of hide roof/show roof
 
            
             foreach (Control x in this.Controls)

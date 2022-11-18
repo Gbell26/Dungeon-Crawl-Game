@@ -49,6 +49,10 @@
             this.Door2 = new System.Windows.Forms.PictureBox();
             this.Roof2 = new System.Windows.Forms.PictureBox();
             this.Key2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.healthLabel = new System.Windows.Forms.Label();
+            this.monster = new System.Windows.Forms.PictureBox();
+            this.changeDirection = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot2)).BeginInit();
@@ -65,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Door2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Key2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monster)).BeginInit();
             this.SuspendLayout();
             // 
             // playerMoveTime
@@ -96,7 +101,7 @@
             this.label2.Location = new System.Drawing.Point(487, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.Size = new System.Drawing.Size(61, 16);
             this.label2.TabIndex = 8;
             this.label2.Text = "Inventory";
             // 
@@ -267,6 +272,39 @@
             this.Key2.TabStop = false;
             this.Key2.Tag = "Key2";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1052, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 16);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Your Health";
+            // 
+            // healthLabel
+            // 
+            this.healthLabel.AutoSize = true;
+            this.healthLabel.Location = new System.Drawing.Point(1164, 43);
+            this.healthLabel.Name = "healthLabel";
+            this.healthLabel.Size = new System.Drawing.Size(0, 16);
+            this.healthLabel.TabIndex = 15;
+            // 
+            // monster
+            // 
+            this.monster.BackColor = System.Drawing.Color.Firebrick;
+            this.monster.Location = new System.Drawing.Point(632, 197);
+            this.monster.Name = "monster";
+            this.monster.Size = new System.Drawing.Size(64, 65);
+            this.monster.TabIndex = 16;
+            this.monster.TabStop = false;
+            this.monster.Tag = "enemy";
+            // 
+            // changeDirection
+            // 
+            this.changeDirection.Enabled = true;
+            this.changeDirection.Interval = 1000;
+            this.changeDirection.Tick += new System.EventHandler(this.changeDirection_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -274,6 +312,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1239, 886);
+            this.Controls.Add(this.monster);
+            this.Controls.Add(this.healthLabel);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Roof2);
             this.Controls.Add(this.Door2);
@@ -309,7 +350,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Door2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Key2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monster)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -334,6 +377,10 @@
         private System.Windows.Forms.PictureBox Door2;
         private System.Windows.Forms.PictureBox Roof2;
         private System.Windows.Forms.PictureBox Key2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label healthLabel;
+        private System.Windows.Forms.PictureBox monster;
+        private System.Windows.Forms.Timer changeDirection;
     }
 }
 
