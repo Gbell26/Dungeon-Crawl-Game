@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.playerMoveTime = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,11 +42,13 @@
             this.playerCharacter = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Door1 = new System.Windows.Forms.PictureBox();
+            this.doorTime = new System.Windows.Forms.Timer(this.components);
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.Door2 = new System.Windows.Forms.PictureBox();
+            this.Roof2 = new System.Windows.Forms.PictureBox();
+            this.Key2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot2)).BeginInit();
@@ -56,11 +59,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.playerCharacter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Door1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Door2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Roof2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Key2)).BeginInit();
             this.SuspendLayout();
             // 
             // playerMoveTime
@@ -71,6 +75,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.inventorySlot3);
@@ -89,7 +96,7 @@
             this.label2.Location = new System.Drawing.Point(487, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.Size = new System.Drawing.Size(66, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "Inventory";
             // 
@@ -158,12 +165,12 @@
             // 
             // playerCharacter
             // 
-            this.playerCharacter.BackColor = System.Drawing.Color.Transparent;
+            this.playerCharacter.BackColor = System.Drawing.Color.DimGray;
             this.playerCharacter.Image = global::FinalProject.Properties.Resources.CS_114_Final_Project_Game_Avatar;
-            this.playerCharacter.Location = new System.Drawing.Point(567, 672);
+            this.playerCharacter.Location = new System.Drawing.Point(526, 682);
             this.playerCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.playerCharacter.Name = "playerCharacter";
-            this.playerCharacter.Size = new System.Drawing.Size(44, 84);
+            this.playerCharacter.Size = new System.Drawing.Size(28, 44);
             this.playerCharacter.TabIndex = 2;
             this.playerCharacter.TabStop = false;
             this.playerCharacter.Tag = "Player";
@@ -190,72 +197,96 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "Wall";
             // 
+            // Door1
+            // 
+            this.Door1.BackColor = System.Drawing.Color.Red;
+            this.Door1.Location = new System.Drawing.Point(362, 565);
+            this.Door1.Name = "Door1";
+            this.Door1.Size = new System.Drawing.Size(60, 10);
+            this.Door1.TabIndex = 8;
+            this.Door1.TabStop = false;
+            this.Door1.Tag = "Door";
+            // 
+            // doorTime
+            // 
+            this.doorTime.Enabled = true;
+            this.doorTime.Interval = 3000;
+            this.doorTime.Tick += new System.EventHandler(this.doorTime_Tick);
+            // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox6.Location = new System.Drawing.Point(246, 0);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox6.TabIndex = 7;
+            this.pictureBox6.Size = new System.Drawing.Size(13, 210);
+            this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Tag = "Wall";
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Red;
-            this.pictureBox7.Location = new System.Drawing.Point(362, 565);
+            this.pictureBox7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pictureBox7.Location = new System.Drawing.Point(1, 197);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(60, 10);
-            this.pictureBox7.TabIndex = 8;
+            this.pictureBox7.Size = new System.Drawing.Size(184, 13);
+            this.pictureBox7.TabIndex = 10;
             this.pictureBox7.TabStop = false;
-            this.pictureBox7.Tag = "Door";
+            this.pictureBox7.Tag = "Wall";
             // 
-            // pictureBox8
+            // Door2
             // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Red;
-            this.pictureBox8.Location = new System.Drawing.Point(567, 414);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(60, 10);
-            this.pictureBox8.TabIndex = 9;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Tag = "Door";
+            this.Door2.BackColor = System.Drawing.Color.Red;
+            this.Door2.Location = new System.Drawing.Point(192, 200);
+            this.Door2.Name = "Door2";
+            this.Door2.Size = new System.Drawing.Size(51, 10);
+            this.Door2.TabIndex = 11;
+            this.Door2.TabStop = false;
+            this.Door2.Tag = "Door2";
             // 
-            // pictureBox9
+            // Roof2
             // 
-            this.pictureBox9.BackColor = System.Drawing.Color.Red;
-            this.pictureBox9.Location = new System.Drawing.Point(687, 727);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(60, 10);
-            this.pictureBox9.TabIndex = 10;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Tag = "Door";
+            this.Roof2.BackColor = System.Drawing.Color.SaddleBrown;
+            this.Roof2.Location = new System.Drawing.Point(13, 13);
+            this.Roof2.Margin = new System.Windows.Forms.Padding(4);
+            this.Roof2.Name = "Roof2";
+            this.Roof2.Size = new System.Drawing.Size(225, 176);
+            this.Roof2.TabIndex = 12;
+            this.Roof2.TabStop = false;
+            this.Roof2.Tag = "Roof";
             // 
-            // pictureBox10
+            // Key2
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.Red;
-            this.pictureBox10.Location = new System.Drawing.Point(900, 430);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(10, 105);
-            this.pictureBox10.TabIndex = 11;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Tag = "Door";
+            this.Key2.BackColor = System.Drawing.Color.Yellow;
+            this.Key2.Location = new System.Drawing.Point(31, 28);
+            this.Key2.Margin = new System.Windows.Forms.Padding(4);
+            this.Key2.Name = "Key2";
+            this.Key2.Size = new System.Drawing.Size(27, 27);
+            this.Key2.TabIndex = 13;
+            this.Key2.TabStop = false;
+            this.Key2.Tag = "Key2";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1239, 886);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Roof2);
+            this.Controls.Add(this.Door2);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Door1);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.playerCharacter);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Key2);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -272,11 +303,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.playerCharacter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Door1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Door2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Roof2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Key2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,11 +327,13 @@
         private System.Windows.Forms.PictureBox inventorySlot2;
         private System.Windows.Forms.PictureBox inventorySlot1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox Door1;
+        private System.Windows.Forms.Timer doorTime;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox Door2;
+        private System.Windows.Forms.PictureBox Roof2;
+        private System.Windows.Forms.PictureBox Key2;
     }
 }
 
