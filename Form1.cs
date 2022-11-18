@@ -22,7 +22,7 @@ namespace FinalProject
         int characterHealth = 100;
         int monsterSpeed = 3;
         Random random = new Random();
-        bool weaponequip = true;
+        bool weaponequip = false;
         bool sheild = false;
         int enemyHealth = 100;
 
@@ -46,6 +46,7 @@ namespace FinalProject
         {
             changeDir = random.Next(7);
         }
+
 
         int keyCount = 0;
 
@@ -77,54 +78,58 @@ namespace FinalProject
 
 
             //enemy movement
-            
-            switch (changeDir)
-            {
-                //right movements
-                case 0:
-                    monster.Left += monsterSpeed;
-                    break;
-                case 1:
-                    monster.Top -= monsterSpeed;
-                    monster.Left += monsterSpeed;
-                    break;
-                case 2:
-                    monster.Top += monsterSpeed;
-                    break;
-                case 3:
-                    monster.Top -= monsterSpeed;    
-                    break;
-                case 4:
-                    monster.Left -= monsterSpeed;
-                    break;
-                case 5:
-                    monster.Top += monsterSpeed;
-                    monster.Left -= monsterSpeed;
-                    break;
-                case 6:
-                    monster.Top -= monsterSpeed;
-                    monster.Left -= monsterSpeed;
-                    break;
-            }
-            /*
-            if (monster.Left <= playerCharacter.Left)
-            {
-                monster.Left += monsterSpeed;
-            }
-            else if (monster.Left >= playerCharacter.Right)
-            {
-                monster.Left -= monsterSpeed;
-            }
 
-            if (monster.Top <= playerCharacter.Top)
-            {
-                monster.Top += monsterSpeed;
+            if (Math.Abs(monster.Left-playerCharacter.Left) <= 25 || Math.Abs(monster.Top - playerCharacter.Top) <= 25){
+                if (monster.Left <= playerCharacter.Left)
+                {
+                    monster.Left += monsterSpeed;
+                }
+                else if (monster.Left >= playerCharacter.Right)
+                {
+                    monster.Left -= monsterSpeed;
+                }
+
+                if (monster.Top <= playerCharacter.Top)
+                {
+                    monster.Top += monsterSpeed;
+                }
+                else if (monster.Top >= playerCharacter.Top)
+                {
+                    monster.Top -= monsterSpeed;
+                }
             }
-            else if (monster.Top >= playerCharacter.Top)
-            {
-                monster.Top -= monsterSpeed;
-            }//end of enemy movement
-            */
+            else {
+                switch (changeDir)
+                {
+                    //right movements
+                    case 0:
+                        monster.Left += monsterSpeed;
+                        break;
+                    case 1:
+                        monster.Top -= monsterSpeed;
+                        monster.Left += monsterSpeed;
+                        break;
+                    case 2:
+                        monster.Top += monsterSpeed;
+                        break;
+                    case 3:
+                        monster.Top -= monsterSpeed;
+                        break;
+                    case 4:
+                        monster.Left -= monsterSpeed;
+                        break;
+                    case 5:
+                        monster.Top += monsterSpeed;
+                        monster.Left -= monsterSpeed;
+                        break;
+                    case 6:
+                        monster.Top -= monsterSpeed;
+                        monster.Left -= monsterSpeed;
+                        break;
+                }
+            }
+           //end of enemy movement
+            
             //Health
             foreach (Control x in this.Controls)
             {
@@ -138,19 +143,13 @@ namespace FinalProject
                             {
                                 if (sheild == false)
                                 {
-                                    playerCharacter.BackColor = Color.Red;
                                     characterHealth -= 1;
                                 }
                             }
                             else if (weaponequip == true)
                             {
-                                x.BackColor = Color.Red;
                                 enemyHealth -= 1;
                             }
-                        }
-                        else
-                        {
-                            playerCharacter.BackColor = Color.Blue;
                         }
                     }
                 }

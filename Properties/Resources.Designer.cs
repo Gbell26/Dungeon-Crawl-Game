@@ -63,9 +63,29 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cooper_Avatar_Small_2__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Cooper_Avatar_Small_2__2_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CS_114_Final_Project_Game_Avatar {
             get {
                 object obj = ResourceManager.GetObject("CS_114_Final_Project_Game_Avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CS_114_Final_Project_Monster__Small {
+            get {
+                object obj = ResourceManager.GetObject("CS_114_Final_Project_Monster__Small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

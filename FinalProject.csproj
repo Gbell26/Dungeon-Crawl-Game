@@ -83,5 +83,11 @@
   <ItemGroup>
     <None Include="Resources\CS 114 Final Project Game Avatar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cooper_Avatar_Small_2 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS_114_Final_Project_Monster__Small.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

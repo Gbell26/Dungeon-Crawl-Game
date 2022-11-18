@@ -171,11 +171,11 @@
             // playerCharacter
             // 
             this.playerCharacter.BackColor = System.Drawing.Color.DimGray;
-            this.playerCharacter.Image = global::FinalProject.Properties.Resources.CS_114_Final_Project_Game_Avatar;
+            this.playerCharacter.Image = global::FinalProject.Properties.Resources.Cooper_Avatar_Small_2__2_;
             this.playerCharacter.Location = new System.Drawing.Point(526, 682);
             this.playerCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.playerCharacter.Name = "playerCharacter";
-            this.playerCharacter.Size = new System.Drawing.Size(28, 44);
+            this.playerCharacter.Size = new System.Drawing.Size(41, 93);
             this.playerCharacter.TabIndex = 2;
             this.playerCharacter.TabStop = false;
             this.playerCharacter.Tag = "Player";
@@ -292,9 +292,10 @@
             // monster
             // 
             this.monster.BackColor = System.Drawing.Color.Firebrick;
+            this.monster.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Final_Project_Monster__Small;
             this.monster.Location = new System.Drawing.Point(632, 197);
             this.monster.Name = "monster";
-            this.monster.Size = new System.Drawing.Size(64, 65);
+            this.monster.Size = new System.Drawing.Size(89, 83);
             this.monster.TabIndex = 16;
             this.monster.TabStop = false;
             this.monster.Tag = "enemy";
