@@ -165,12 +165,12 @@
             // 
             // playerCharacter
             // 
-            this.playerCharacter.BackColor = System.Drawing.Color.DimGray;
-            this.playerCharacter.Image = global::FinalProject.Properties.Resources.CS_114_Final_Project_Game_Avatar;
-            this.playerCharacter.Location = new System.Drawing.Point(526, 682);
+            this.playerCharacter.BackColor = System.Drawing.Color.White;
+            this.playerCharacter.Image = ((System.Drawing.Image)(resources.GetObject("playerCharacter.Image")));
+            this.playerCharacter.Location = new System.Drawing.Point(586, 680);
             this.playerCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.playerCharacter.Name = "playerCharacter";
-            this.playerCharacter.Size = new System.Drawing.Size(28, 44);
+            this.playerCharacter.Size = new System.Drawing.Size(29, 85);
             this.playerCharacter.TabIndex = 2;
             this.playerCharacter.TabStop = false;
             this.playerCharacter.Tag = "Player";
