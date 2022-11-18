@@ -40,13 +40,8 @@ namespace FinalProject
                 Door2.Visible = true;
                 
             }
-        }
-
-        private void changeDirection_Tick(object sender, EventArgs e)
-        {
             changeDir = random.Next(7);
         }
-
 
         int keyCount = 0;
 
@@ -131,27 +126,18 @@ namespace FinalProject
            //end of enemy movement
             
             //Health
-            foreach (Control x in this.Controls)
+            if (playerCharacter.Bounds.IntersectsWith(monster.Bounds))
             {
-                if (x is PictureBox)
+                if (weaponequip == false)
                 {
-                    if ((string)x.Tag == "enemy")
+                    if (sheild == false)
                     {
-                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
-                        {
-                            if (weaponequip == false)
-                            {
-                                if (sheild == false)
-                                {
-                                    characterHealth -= 1;
-                                }
-                            }
-                            else if (weaponequip == true)
-                            {
-                                enemyHealth -= 1;
-                            }
-                        }
+                        characterHealth -= 1;
                     }
+                }
+                else if (weaponequip == true)
+                {
+                    enemyHealth -= 1;
                 }
             }
             if (characterHealth <= 0)
@@ -165,9 +151,10 @@ namespace FinalProject
                 monster.Visible = false;
             }
             healthLabel.Text = characterHealth.ToString();
-
             //end of health
-            //monster boundarys(might need to go into new timer)
+
+
+            //monster boundarys
             if (monster.Left >= this.ClientSize.Width)
             {
                 changeDir = 4;
@@ -218,228 +205,210 @@ namespace FinalProject
             }//end of walls
 
             //Make roof invisible on entry of room
-            foreach (Control x in this.Controls)
+            if (playerCharacter.Bounds.IntersectsWith(Roof2.Bounds))
             {
-                if (x is PictureBox)
-                {
-                    if ((string)x.Tag == "Roof")
-                    {
-                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
-                        {
-                            x.Visible = false;
-                        }
-                        else
-                        {
-                            x.Visible=true;
-                        }
-                    }
-                }
+                Roof2.Visible = false;
+            }
+            else
+            {
+                Roof2.Visible = true;
+            }
+
+
+            if (playerCharacter.Bounds.IntersectsWith(roof1.Bounds))
+            {
+                roof1.Visible = false;
+            }
+            else
+            {
+                roof1.Visible = true;
             }//end of hide roof/show roof
 
-           
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
-                {
-                    if ((string)x.Tag == "Key")
-                    {
-                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
-                        {
-                            x.Visible = false;
-                            keyCount += 1;
-                            inventorySlot1.BackColor = Color.Yellow;
-                        }
-                    }
-                }
-            }//end of key
+            keyCountLabel.Text = keyCount.ToString();
 
-            foreach (Control x in this.Controls)
+            if (playerCharacter.Bounds.IntersectsWith(key1.Bounds))
             {
-                if (x is PictureBox)
+                if (key1.Visible == true)
                 {
-                    if ((string)x.Tag == "Key2")
-                    {
-                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds))
-                        {
-                            x.Visible = false;
-                            keyCount += 1;
-                            inventorySlot2.BackColor = Color.Yellow;
-                        }
-                    }
+                    keyCount += 1;
+                    key1.Visible = false;
+
+                }
+            }
+            //end of key
+            if (playerCharacter.Bounds.IntersectsWith(Key2.Bounds))
+            {
+                if (Key2.Visible == true)
+                {
+                    keyCount += 1;
+                    Key2.Visible = false;
+
                 }
             }//end of key2
-
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
+            //Door1
+                if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterLeft == true)
                 {
-                    if ((string)x.Tag == "Door")
+                    if (keyActivate == true && keyCount >= 1)
                     {
-                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterLeft == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if(doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Left += playerSpeed;
-                            }
-                        }
-                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterRight == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Left -= playerSpeed;
-                            }
-                        }
-                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterUp == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Top += playerSpeed;
-                            }
-                        }
-                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterDown == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Top -= playerSpeed;
-                            }
-
-                        }
-
+                        doorUnLock = true;
+                    }
+                    if (doorUnLock == true)
+                    {
+                    Door1.Visible = false;
+                        doorTime.Enabled = false;
+                        doorTime.Enabled = true;
+                    }
+                    else
+                    {
+                        playerCharacter.Left += playerSpeed;
                     }
                 }
-            }//End of Door code
-
-
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
+                else if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterRight == true)
                 {
-                    if ((string)x.Tag == "Door2")
+                    if (keyActivate == true && keyCount >= 1)
                     {
-                        if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterLeft == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Left += playerSpeed;
-                            }
-                        }
-                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterRight == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Left -= playerSpeed;
-                            }
-                        }
-                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterUp == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Top += playerSpeed;
-                            }
-                        }
-                        else if (playerCharacter.Bounds.IntersectsWith(x.Bounds) && characterDown == true)
-                        {
-                            if (keyActivate == true && keyCount >= 1)
-                            {
-                                doorUnLock = true;
-                            }
-                            if (doorUnLock == true)
-                            {
-                                x.Visible = false;
-                                doorTime.Enabled = false;
-                                doorTime.Enabled = true;
-                            }
-                            else
-                            {
-                                playerCharacter.Top -= playerSpeed;
-                            }
-
-                        }
-
+                        doorUnLock = true;
+                    }
+                    if (doorUnLock == true)
+                    {
+                    Door1.Visible = false;
+                        doorTime.Enabled = false;
+                        doorTime.Enabled = true;
+                    }
+                    else
+                    {
+                        playerCharacter.Left -= playerSpeed;
                     }
                 }
+                else if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterUp == true)
+                {
+                    if (keyActivate == true && keyCount >= 1)
+                    {
+                        doorUnLock = true;
+                    }
+                    if (doorUnLock == true)
+                    {
+                    Door1.Visible = false;
+                        doorTime.Enabled = false;
+                        doorTime.Enabled = true;
+                    }
+                    else
+                    {
+                        playerCharacter.Top += playerSpeed;
+                    }
+                }
+                else if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterDown == true)
+                {
+                    if (keyActivate == true && keyCount >= 1)
+                    {
+                        doorUnLock = true;
+                    }
+                    if (doorUnLock == true)
+                    {
+                    Door1.Visible = false;
+                        doorTime.Enabled = false;
+                        doorTime.Enabled = true;
+                    }
+                    else
+                    {
+                        playerCharacter.Top -= playerSpeed;
+                    }
+
+                }//End of Door code
+
+
+            if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterLeft == true)
+            {
+                if (keyActivate == true && keyCount >= 1)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door2.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                }
+                else
+                {
+                    playerCharacter.Left += playerSpeed;
+                }
+            }
+            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterRight == true)
+            {
+                if (keyActivate == true && keyCount >= 1)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door2.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                }
+                else
+                {
+                    playerCharacter.Left -= playerSpeed;
+                }
+            }
+            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterUp == true)
+            {
+                if (keyActivate == true && keyCount >= 1)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door2.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                }
+                else
+                {
+                    playerCharacter.Top += playerSpeed;
+                }
+            }
+            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterDown == true)
+            {
+                if (keyActivate == true && keyCount >= 1)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door2.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                }
+                else
+                {
+                    playerCharacter.Top -= playerSpeed;
+                }
+
             }//End of Door2 code
 
+            //ADD SWORD & SHIELD HITPOINTS
+           if (playerCharacter.Bounds.IntersectsWith(swordPB.Bounds))
+           {
+                swordPB.Visible = false;
+                inventorySlot1.BackColor = Color.Violet;
+                inventorySlot1.Tag = "sword";
+           }   
+           else
+           {
+                swordPB.Visible = true;
+           }
 
-            //reset doors
-            /* if (doorUnLock == true)
-             {
-                 int milliseconds = 5000;
-                 Thread.Sleep(milliseconds);
-                 doorUnLock = false;
-
-             }
-            */
+            if (playerCharacter.Bounds.IntersectsWith(shieldPB.Bounds))
+            {
+                shieldPB.Visible = false;
+                inventorySlot2.BackColor = Color.Violet;
+                inventorySlot2.Tag = "sword";
+            }
+            else
+            {
+                swordPB.Visible = true;
+            }
 
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -479,7 +448,8 @@ namespace FinalProject
             {
                 keyActivate = true;
             }
-            
+           
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)

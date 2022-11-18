@@ -36,8 +36,8 @@
             this.inventorySlot3 = new System.Windows.Forms.PictureBox();
             this.inventorySlot2 = new System.Windows.Forms.PictureBox();
             this.inventorySlot1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.key1 = new System.Windows.Forms.PictureBox();
+            this.roof1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.playerCharacter = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -52,13 +52,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.healthLabel = new System.Windows.Forms.Label();
             this.monster = new System.Windows.Forms.PictureBox();
-            this.changeDirection = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.keyCountLabel = new System.Windows.Forms.Label();
+            this.swordPB = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.shieldPB = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roof1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCharacter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -70,6 +77,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Key2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.swordPB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shieldPB)).BeginInit();
             this.SuspendLayout();
             // 
             // playerMoveTime
@@ -84,6 +93,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.keyCountLabel);
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.inventorySlot3);
             this.panel1.Controls.Add(this.inventorySlot2);
@@ -135,27 +148,27 @@
             this.inventorySlot1.TabIndex = 0;
             this.inventorySlot1.TabStop = false;
             // 
-            // pictureBox5
+            // key1
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Yellow;
-            this.pictureBox5.Location = new System.Drawing.Point(756, 550);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox5.TabIndex = 5;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Tag = "Key";
+            this.key1.BackColor = System.Drawing.Color.Yellow;
+            this.key1.Location = new System.Drawing.Point(756, 550);
+            this.key1.Margin = new System.Windows.Forms.Padding(4);
+            this.key1.Name = "key1";
+            this.key1.Size = new System.Drawing.Size(27, 27);
+            this.key1.TabIndex = 5;
+            this.key1.TabStop = false;
+            this.key1.Tag = "Key";
             // 
-            // pictureBox4
+            // roof1
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.SaddleBrown;
-            this.pictureBox4.Location = new System.Drawing.Point(1, 585);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(421, 171);
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Tag = "Roof";
+            this.roof1.BackColor = System.Drawing.Color.SaddleBrown;
+            this.roof1.Location = new System.Drawing.Point(1, 585);
+            this.roof1.Margin = new System.Windows.Forms.Padding(4);
+            this.roof1.Name = "roof1";
+            this.roof1.Size = new System.Drawing.Size(421, 171);
+            this.roof1.TabIndex = 4;
+            this.roof1.TabStop = false;
+            this.roof1.Tag = "Roof";
             // 
             // pictureBox3
             // 
@@ -215,7 +228,7 @@
             // doorTime
             // 
             this.doorTime.Enabled = true;
-            this.doorTime.Interval = 3000;
+            this.doorTime.Interval = 2000;
             this.doorTime.Tick += new System.EventHandler(this.doorTime_Tick);
             // 
             // pictureBox6
@@ -300,11 +313,80 @@
             this.monster.TabStop = false;
             this.monster.Tag = "enemy";
             // 
-            // changeDirection
+            // label3
             // 
-            this.changeDirection.Enabled = true;
-            this.changeDirection.Interval = 1000;
-            this.changeDirection.Tick += new System.EventHandler(this.changeDirection_Tick);
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(487, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Keys:";
+            // 
+            // keyCountLabel
+            // 
+            this.keyCountLabel.AutoSize = true;
+            this.keyCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.keyCountLabel.Location = new System.Drawing.Point(533, 39);
+            this.keyCountLabel.Name = "keyCountLabel";
+            this.keyCountLabel.Size = new System.Drawing.Size(0, 16);
+            this.keyCountLabel.TabIndex = 10;
+            // 
+            // swordPB
+            // 
+            this.swordPB.Location = new System.Drawing.Point(227, 368);
+            this.swordPB.Name = "swordPB";
+            this.swordPB.Size = new System.Drawing.Size(32, 71);
+            this.swordPB.TabIndex = 17;
+            this.swordPB.TabStop = false;
+            this.swordPB.Tag = "sword";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(224, 390);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 16);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "SWORD";
+            // 
+            // shieldPB
+            // 
+            this.shieldPB.Location = new System.Drawing.Point(1020, 393);
+            this.shieldPB.Name = "shieldPB";
+            this.shieldPB.Size = new System.Drawing.Size(29, 74);
+            this.shieldPB.TabIndex = 19;
+            this.shieldPB.TabStop = false;
+            this.shieldPB.Tag = "sheild";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1006, 423);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 16);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "SHIELD";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(45, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 16);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Sword";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(204, 17);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Shield";
             // 
             // Form1
             // 
@@ -313,6 +395,10 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1239, 886);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.shieldPB);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.swordPB);
             this.Controls.Add(this.monster);
             this.Controls.Add(this.healthLabel);
             this.Controls.Add(this.label1);
@@ -322,8 +408,8 @@
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.Door1);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.key1);
+            this.Controls.Add(this.roof1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.playerCharacter);
             this.Controls.Add(this.pictureBox2);
@@ -339,8 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roof1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerCharacter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -352,6 +438,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Key2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.swordPB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shieldPB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,8 +452,8 @@
         private System.Windows.Forms.Timer playerMoveTime;
         public System.Windows.Forms.PictureBox playerCharacter;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox roof1;
+        private System.Windows.Forms.PictureBox key1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox inventorySlot3;
         private System.Windows.Forms.PictureBox inventorySlot2;
@@ -381,7 +469,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label healthLabel;
         private System.Windows.Forms.PictureBox monster;
-        private System.Windows.Forms.Timer changeDirection;
+        private System.Windows.Forms.Label keyCountLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox swordPB;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox shieldPB;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
 
