@@ -89,5 +89,20 @@
   <ItemGroup>
     <None Include="Resources\CS_114_Final_Project_Monster__Small.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cobblestones.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roof2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS 114 Final Project Monster .png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS 114 Shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS 114 Sword.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

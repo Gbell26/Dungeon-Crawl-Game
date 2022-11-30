@@ -19,16 +19,20 @@ namespace FinalProject
         }
 
         bool characterLeft, characterRight, characterUp, characterDown, keyActivate, doorUnLock;
-        int characterHealth = 100;
-        int monsterSpeed = 3;
+        
+        
         Random random = new Random();
+
+        bool inventorySword = false;
+        bool inventoryShield = false;
         bool weaponequip = false;
         bool sheild = false;
+
         int enemyHealth = 100;
-
-
+        int characterHealth = 100;
         int changeDir = 0;
 
+        int monsterSpeed = 3;
         int playerSpeed = 5;
 
         private void doorTime_Tick(object sender, EventArgs e)
@@ -40,7 +44,12 @@ namespace FinalProject
                 Door2.Visible = true;
                 
             }
-            changeDir = random.Next(7);
+            changeDir = random.Next(4);
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
 
         int keyCount = 0;
@@ -101,26 +110,14 @@ namespace FinalProject
                         monster.Left += monsterSpeed;
                         break;
                     case 1:
-                        monster.Top -= monsterSpeed;
-                        monster.Left += monsterSpeed;
+                        monster.Top += monsterSpeed;
                         break;
                     case 2:
-                        monster.Top += monsterSpeed;
+                        monster.Top -= monsterSpeed;
                         break;
                     case 3:
-                        monster.Top -= monsterSpeed;
-                        break;
-                    case 4:
                         monster.Left -= monsterSpeed;
-                        break;
-                    case 5:
-                        monster.Top += monsterSpeed;
-                        monster.Left -= monsterSpeed;
-                        break;
-                    case 6:
-                        monster.Top -= monsterSpeed;
-                        monster.Left -= monsterSpeed;
-                        break;
+                        break;             
                 }
             }
            //end of enemy movement
@@ -157,7 +154,7 @@ namespace FinalProject
             //monster boundarys
             if (monster.Left >= this.ClientSize.Width)
             {
-                changeDir = 4;
+                changeDir = 3;
             }
 
             if (monster.Left <= 0)
@@ -167,12 +164,12 @@ namespace FinalProject
 
             if (monster.Top >= this.ClientSize.Height)
             {
-                changeDir = 3;
+                changeDir = 2;
             }
 
             if (monster.Top <= 0)
             {
-                changeDir = 2;
+                changeDir = 1;
             }
             //end of monster boundaries
 
@@ -388,26 +385,30 @@ namespace FinalProject
             }//End of Door2 code
 
             //ADD SWORD & SHIELD HITPOINTS
+
+            //pick up sword and shield
            if (playerCharacter.Bounds.IntersectsWith(swordPB.Bounds))
            {
                 swordPB.Visible = false;
                 inventorySlot1.BackColor = Color.Violet;
-                inventorySlot1.Tag = "sword";
+                inventorySword = true;
            }   
-           else
-           {
-                swordPB.Visible = true;
-           }
 
             if (playerCharacter.Bounds.IntersectsWith(shieldPB.Bounds))
             {
                 shieldPB.Visible = false;
                 inventorySlot2.BackColor = Color.Violet;
-                inventorySlot2.Tag = "sword";
+                inventoryShield = true;
+            }
+
+            //quicksand trap
+            if (playerCharacter.Bounds.IntersectsWith(quickSand.Bounds))
+            {
+                playerSpeed = 2;
             }
             else
             {
-                swordPB.Visible = true;
+                playerSpeed = 5;
             }
 
         }
@@ -448,7 +449,25 @@ namespace FinalProject
             {
                 keyActivate = true;
             }
-           
+
+            //equip Sword
+            if (e.KeyCode == Keys.E)
+            {
+                if (inventorySword == true)
+                {
+                    weaponequip = true;
+                    inventorySlot1.BackColor = Color.White;
+                }
+            }
+            //equip shield
+            if (e.KeyCode == Keys.R)
+            {
+                if (inventoryShield == true)
+                {
+                    sheild = true;
+                    inventorySlot2.BackColor = Color.White;
+                }
+            }
 
         }
 
@@ -475,6 +494,8 @@ namespace FinalProject
             {
                 keyActivate = false;
             }
+
+
 
 
         }

@@ -63,6 +63,16 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cobblestones {
+            get {
+                object obj = ResourceManager.GetObject("cobblestones", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cooper_Avatar_Small_2__2_ {
             get {
                 object obj = ResourceManager.GetObject("Cooper_Avatar_Small_2__2_", resourceCulture);
@@ -73,9 +83,9 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CS_114_Final_Project_Game_Avatar {
+        internal static System.Drawing.Bitmap CS_114_Final_Project_Monster {
             get {
-                object obj = ResourceManager.GetObject("CS_114_Final_Project_Game_Avatar", resourceCulture);
+                object obj = ResourceManager.GetObject("CS_114_Final_Project_Monster", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +96,36 @@ namespace FinalProject.Properties {
         internal static System.Drawing.Bitmap CS_114_Final_Project_Monster__Small {
             get {
                 object obj = ResourceManager.GetObject("CS_114_Final_Project_Monster__Small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CS_114_Shield {
+            get {
+                object obj = ResourceManager.GetObject("CS_114_Shield", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CS_114_Sword {
+            get {
+                object obj = ResourceManager.GetObject("CS_114_Sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap roof2 {
+            get {
+                object obj = ResourceManager.GetObject("roof2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
