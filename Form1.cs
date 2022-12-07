@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Gregory Bell, Levi Bushey, Jaleel Gonzalez
+//CS-114 Final Project
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,12 +30,21 @@ namespace FinalProject
         bool inventoryShield = false;
         bool weaponequip = false;
         bool sheild = false;
+        int swordHealth = 50;
+        int shieldHealth = 50;
 
+        bool monsterAlive = true;
         int enemyHealth = 100;
         int characterHealth = 100;
         int changeDir = 0;
 
         int monsterSpeed = 3;
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
         int playerSpeed = 5;
 
         private void doorTime_Tick(object sender, EventArgs e)
@@ -45,11 +57,6 @@ namespace FinalProject
                 
             }
             changeDir = random.Next(4);
-        }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
         }
 
         int keyCount = 0;
@@ -83,7 +90,7 @@ namespace FinalProject
 
             //enemy movement
 
-            if (Math.Abs(monster.Left-playerCharacter.Left) <= 25 || Math.Abs(monster.Top - playerCharacter.Top) <= 25){
+            if (Math.Abs(monster.Left-playerCharacter.Left) <= 20 || Math.Abs(monster.Top - playerCharacter.Top) <= 20){
                 if (monster.Left <= playerCharacter.Left)
                 {
                     monster.Left += monsterSpeed;
@@ -120,10 +127,10 @@ namespace FinalProject
                         break;             
                 }
             }
-           //end of enemy movement
-            
+            //end of enemy movement
+
             //Health
-            if (playerCharacter.Bounds.IntersectsWith(monster.Bounds))
+            if (playerCharacter.Bounds.IntersectsWith(monster.Bounds) && monsterAlive == true)
             {
                 if (weaponequip == false)
                 {
@@ -131,10 +138,15 @@ namespace FinalProject
                     {
                         characterHealth -= 1;
                     }
+                    else
+                    {
+                        shieldHealth -= 1;
+                    }
                 }
                 else if (weaponequip == true)
                 {
                     enemyHealth -= 1;
+                    swordHealth -= 1;
                 }
             }
             if (characterHealth <= 0)
@@ -146,6 +158,7 @@ namespace FinalProject
             if (enemyHealth <= 0)
             {
                 monster.Visible = false;
+                monsterAlive = false;
             }
             healthLabel.Text = characterHealth.ToString();
             //end of health
@@ -223,36 +236,9 @@ namespace FinalProject
 
             keyCountLabel.Text = keyCount.ToString();
 
-            if (playerCharacter.Bounds.IntersectsWith(key1.Bounds))
-            {
-                if (key1.Visible == true)
-                {
-                    keyCount += 1;
-                    key1.Visible = false;
-
-                }
-            }
-            //end of key
-            if (playerCharacter.Bounds.IntersectsWith(Key2.Bounds))
-            {
-                if (Key2.Visible == true)
-                {
-                    keyCount += 1;
-                    Key2.Visible = false;
-
-                }
-            }//end of key2
-            if (playerCharacter.Bounds.IntersectsWith(key3.Bounds))
-            {
-                if (key3.Visible == true)
-                {
-                    keyCount += 1;
-                    key3.Visible = false;
-
-                }
-            }//end of key3
+            //end of key3
             //Door1
-            if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterLeft == true)
+            if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterDown == true)
                 {
                     if (keyActivate == true && keyCount >= 1)
                     {
@@ -266,26 +252,10 @@ namespace FinalProject
                     }
                     else
                     {
-                        playerCharacter.Left += playerSpeed;
+                        playerCharacter.Top -= playerSpeed;
                     }
                 }
-                else if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterRight == true)
-                {
-                    if (keyActivate == true && keyCount >= 1)
-                    {
-                        doorUnLock = true;
-                    }
-                    if (doorUnLock == true)
-                    {
-                    Door1.Visible = false;
-                        doorTime.Enabled = false;
-                        doorTime.Enabled = true;
-                    }
-                    else
-                    {
-                        playerCharacter.Left -= playerSpeed;
-                    }
-                }
+               
                 else if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterUp == true)
                 {
                     if (keyActivate == true && keyCount >= 1)
@@ -303,27 +273,10 @@ namespace FinalProject
                         playerCharacter.Top += playerSpeed;
                     }
                 }
-                else if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterDown == true)
-                {
-                    if (keyActivate == true && keyCount >= 1)
-                    {
-                        doorUnLock = true;
-                    }
-                    if (doorUnLock == true)
-                    {
-                    Door1.Visible = false;
-                        doorTime.Enabled = false;
-                        doorTime.Enabled = true;
-                    }
-                    else
-                    {
-                        playerCharacter.Top -= playerSpeed;
-                    }
-
-                }//End of Door code
+               //End of Door code
 
 
-            if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterLeft == true)
+            if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterDown == true)
             {
                 if (keyActivate == true && keyCount >= 1)
                 {
@@ -337,26 +290,10 @@ namespace FinalProject
                 }
                 else
                 {
-                    playerCharacter.Left += playerSpeed;
+                    playerCharacter.Top -= playerSpeed;
                 }
             }
-            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterRight == true)
-            {
-                if (keyActivate == true && keyCount >= 1)
-                {
-                    doorUnLock = true;
-                }
-                if (doorUnLock == true)
-                {
-                    Door2.Visible = false;
-                    doorTime.Enabled = false;
-                    doorTime.Enabled = true;
-                }
-                else
-                {
-                    playerCharacter.Left -= playerSpeed;
-                }
-            }
+            
             else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterUp == true)
             {
                 if (keyActivate == true && keyCount >= 1)
@@ -374,24 +311,7 @@ namespace FinalProject
                     playerCharacter.Top += playerSpeed;
                 }
             }
-            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterDown == true)
-            {
-                if (keyActivate == true && keyCount >= 1)
-                {
-                    doorUnLock = true;
-                }
-                if (doorUnLock == true)
-                {
-                    Door2.Visible = false;
-                    doorTime.Enabled = false;
-                    doorTime.Enabled = true;
-                }
-                else
-                {
-                    playerCharacter.Top -= playerSpeed;
-                }
-
-            }//End of Door2 code
+            //End of Door2 code
 
             if (playerCharacter.Bounds.IntersectsWith(Door3.Bounds) && characterLeft == true)
             {
@@ -487,23 +407,22 @@ namespace FinalProject
 
             }//end Win Door
 
-
-            //ADD SWORD & SHIELD HITPOINTS
-
-            //pick up sword and shield
-            if (playerCharacter.Bounds.IntersectsWith(swordPB.Bounds))
-           {
-                swordPB.Visible = false;
-                inventorySlot1.BackColor = Color.Violet;
-                inventorySword = true;
-           }   
-
-            if (playerCharacter.Bounds.IntersectsWith(shieldPB.Bounds))
+            //Shield & Sword health
+            if(shieldHealth == 0)
             {
-                shieldPB.Visible = false;
-                inventorySlot2.BackColor = Color.Violet;
-                inventoryShield = true;
+                sheild = false;
+                shieldPB.Visible=true;
+                shieldHealth = 100;
+                equippedLbl.Text = "";
             }
+            if(swordHealth == 0)
+            {
+                weaponequip = false;
+                swordPB.Visible = true;
+                swordHealth = 100;
+                equippedLbl.Text = "";
+            }
+
 
             //quicksand trap
             if (playerCharacter.Bounds.IntersectsWith(quickSand.Bounds))
@@ -561,7 +480,8 @@ namespace FinalProject
                 {
                     equippedLbl.Text = "Sword Equipped";
                     weaponequip = true;
-                    inventorySlot1.BackColor = Color.White;
+                    inventorySlot1.Visible = false;
+                    inventorySword = false;
                 }
             }
             //equip shield
@@ -571,9 +491,12 @@ namespace FinalProject
                 {
                     equippedLbl.Text = "Shield Equipped";
                     sheild = true;
-                    inventorySlot2.BackColor = Color.White;
+                    inventorySlot2.Visible=false;
+                    inventoryShield = false;
                 }
             }
+
+           
 
         }
 
@@ -599,23 +522,53 @@ namespace FinalProject
             if (e.KeyCode == Keys.Space)
             {
                 keyActivate = false;
+
+                if (playerCharacter.Bounds.IntersectsWith(swordPB.Bounds))
+                {
+                    swordPB.Visible = false;
+                    inventorySlot1.Visible = true;
+                    inventorySword = true;
+                }
+
+                if (playerCharacter.Bounds.IntersectsWith(shieldPB.Bounds))
+                {
+                    shieldPB.Visible = false;
+                    inventorySlot2.Visible = true;
+                    inventoryShield = true;
+                }
+
+                if (playerCharacter.Bounds.IntersectsWith(key1.Bounds))
+                {
+                    if (key1.Visible == true)
+                    {
+                        keyCount += 1;
+                        key1.Visible = false;
+
+                    }
+                }
+                //end of key
+                if (playerCharacter.Bounds.IntersectsWith(Key2.Bounds))
+                {
+                    if (Key2.Visible == true)
+                    {
+                        keyCount += 1;
+                        Key2.Visible = false;
+
+                    }
+                }//end of key2
+                if (playerCharacter.Bounds.IntersectsWith(key3.Bounds))
+                {
+                    if (key3.Visible == true)
+                    {
+                        keyCount += 1;
+                        key3.Visible = false;
+
+                    }
+                }
             }
 
 
 
-
-        }
-        private void RestartGame()
-        {
-            bool characterLeft = false;
-            bool characterRight = false;
-            bool characterDown = false;
-            bool characterUp = false;
-
-            int playerSpeed = 5;
-
-            playerCharacter.Left = 422;
-            playerCharacter.Top = 561;
 
         }
     }

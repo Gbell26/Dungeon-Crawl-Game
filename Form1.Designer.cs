@@ -191,27 +191,33 @@
             // inventorySlot2
             // 
             this.inventorySlot2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.inventorySlot2.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Shield;
+            this.inventorySlot2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.inventorySlot2.Location = new System.Drawing.Point(849, 27);
             this.inventorySlot2.Margin = new System.Windows.Forms.Padding(4);
             this.inventorySlot2.Name = "inventorySlot2";
             this.inventorySlot2.Size = new System.Drawing.Size(125, 62);
             this.inventorySlot2.TabIndex = 1;
             this.inventorySlot2.TabStop = false;
+            this.inventorySlot2.Visible = false;
             // 
             // inventorySlot1
             // 
             this.inventorySlot1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.inventorySlot1.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Sword;
+            this.inventorySlot1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.inventorySlot1.Location = new System.Drawing.Point(269, 28);
             this.inventorySlot1.Margin = new System.Windows.Forms.Padding(4);
             this.inventorySlot1.Name = "inventorySlot1";
             this.inventorySlot1.Size = new System.Drawing.Size(133, 62);
             this.inventorySlot1.TabIndex = 0;
             this.inventorySlot1.TabStop = false;
+            this.inventorySlot1.Visible = false;
             // 
             // key1
             // 
             this.key1.BackColor = System.Drawing.Color.Yellow;
-            this.key1.Location = new System.Drawing.Point(1184, 496);
+            this.key1.Location = new System.Drawing.Point(81, 649);
             this.key1.Margin = new System.Windows.Forms.Padding(4);
             this.key1.Name = "key1";
             this.key1.Size = new System.Drawing.Size(27, 27);
@@ -246,13 +252,13 @@
             // 
             // playerCharacter
             // 
-            this.playerCharacter.BackColor = System.Drawing.Color.White;
-            this.playerCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.playerCharacter.Image = global::FinalProject.Properties.Resources.Cooper_Avatar_Small_2__2_;
-            this.playerCharacter.Location = new System.Drawing.Point(657, 650);
+            this.playerCharacter.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.playerCharacter.BackgroundImage = global::FinalProject.Properties.Resources.Cooper_Avatar_Small_2__2_;
+            this.playerCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.playerCharacter.Location = new System.Drawing.Point(664, 649);
             this.playerCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.playerCharacter.Name = "playerCharacter";
-            this.playerCharacter.Size = new System.Drawing.Size(32, 85);
+            this.playerCharacter.Size = new System.Drawing.Size(39, 61);
             this.playerCharacter.TabIndex = 2;
             this.playerCharacter.TabStop = false;
             this.playerCharacter.Tag = "Player";
@@ -363,7 +369,7 @@
             // 
             // monster
             // 
-            this.monster.BackColor = System.Drawing.Color.Maroon;
+            this.monster.BackColor = System.Drawing.Color.Transparent;
             this.monster.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Final_Project_Monster;
             this.monster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.monster.Location = new System.Drawing.Point(606, 169);
@@ -378,7 +384,7 @@
             this.swordPB.BackColor = System.Drawing.Color.Transparent;
             this.swordPB.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Sword;
             this.swordPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.swordPB.Location = new System.Drawing.Point(304, 193);
+            this.swordPB.Location = new System.Drawing.Point(129, 62);
             this.swordPB.Name = "swordPB";
             this.swordPB.Size = new System.Drawing.Size(56, 85);
             this.swordPB.TabIndex = 17;
@@ -390,7 +396,7 @@
             this.shieldPB.BackColor = System.Drawing.Color.Transparent;
             this.shieldPB.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Shield;
             this.shieldPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.shieldPB.Location = new System.Drawing.Point(930, 308);
+            this.shieldPB.Location = new System.Drawing.Point(171, 625);
             this.shieldPB.Name = "shieldPB";
             this.shieldPB.Size = new System.Drawing.Size(72, 85);
             this.shieldPB.TabIndex = 19;
@@ -432,7 +438,7 @@
             // key3
             // 
             this.key3.BackColor = System.Drawing.Color.Yellow;
-            this.key3.Location = new System.Drawing.Point(909, 183);
+            this.key3.Location = new System.Drawing.Point(763, 560);
             this.key3.Name = "key3";
             this.key3.Size = new System.Drawing.Size(25, 27);
             this.key3.TabIndex = 23;
@@ -456,13 +462,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1239, 886);
+            this.Controls.Add(this.monster);
             this.Controls.Add(this.equippedLbl);
             this.Controls.Add(this.key3);
             this.Controls.Add(this.Door3);
-            this.Controls.Add(this.quickSand);
-            this.Controls.Add(this.shieldPB);
-            this.Controls.Add(this.swordPB);
-            this.Controls.Add(this.monster);
             this.Controls.Add(this.healthLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
@@ -471,13 +474,16 @@
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.Door1);
-            this.Controls.Add(this.key1);
             this.Controls.Add(this.roof1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.playerCharacter);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Key2);
+            this.Controls.Add(this.quickSand);
+            this.Controls.Add(this.shieldPB);
+            this.Controls.Add(this.swordPB);
+            this.Controls.Add(this.key1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
