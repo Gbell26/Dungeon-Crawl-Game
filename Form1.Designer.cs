@@ -60,6 +60,9 @@
             this.shieldPB = new System.Windows.Forms.PictureBox();
             this.quickSand = new System.Windows.Forms.PictureBox();
             this.Roof2 = new System.Windows.Forms.PictureBox();
+            this.Door3 = new System.Windows.Forms.PictureBox();
+            this.key3 = new System.Windows.Forms.PictureBox();
+            this.equippedLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot1)).BeginInit();
@@ -79,6 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.shieldPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quickSand)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Door3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key3)).BeginInit();
             this.SuspendLayout();
             // 
             // playerMoveTime
@@ -358,12 +363,12 @@
             // 
             // monster
             // 
-            this.monster.BackColor = System.Drawing.Color.Transparent;
+            this.monster.BackColor = System.Drawing.Color.Maroon;
             this.monster.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Final_Project_Monster;
             this.monster.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.monster.Location = new System.Drawing.Point(606, 169);
             this.monster.Name = "monster";
-            this.monster.Size = new System.Drawing.Size(73, 81);
+            this.monster.Size = new System.Drawing.Size(47, 44);
             this.monster.TabIndex = 16;
             this.monster.TabStop = false;
             this.monster.Tag = "enemy";
@@ -414,6 +419,35 @@
             this.Roof2.TabStop = false;
             this.Roof2.Tag = "Roof";
             // 
+            // Door3
+            // 
+            this.Door3.BackColor = System.Drawing.Color.Red;
+            this.Door3.Location = new System.Drawing.Point(602, 18);
+            this.Door3.Name = "Door3";
+            this.Door3.Size = new System.Drawing.Size(61, 20);
+            this.Door3.TabIndex = 22;
+            this.Door3.TabStop = false;
+            this.Door3.Tag = "winDoor";
+            // 
+            // key3
+            // 
+            this.key3.BackColor = System.Drawing.Color.Yellow;
+            this.key3.Location = new System.Drawing.Point(909, 183);
+            this.key3.Name = "key3";
+            this.key3.Size = new System.Drawing.Size(25, 27);
+            this.key3.TabIndex = 23;
+            this.key3.TabStop = false;
+            this.key3.Tag = "Key";
+            // 
+            // equippedLbl
+            // 
+            this.equippedLbl.AutoSize = true;
+            this.equippedLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equippedLbl.Location = new System.Drawing.Point(991, 51);
+            this.equippedLbl.Name = "equippedLbl";
+            this.equippedLbl.Size = new System.Drawing.Size(0, 29);
+            this.equippedLbl.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -422,6 +456,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1239, 886);
+            this.Controls.Add(this.equippedLbl);
+            this.Controls.Add(this.key3);
+            this.Controls.Add(this.Door3);
             this.Controls.Add(this.quickSand);
             this.Controls.Add(this.shieldPB);
             this.Controls.Add(this.swordPB);
@@ -467,6 +504,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.shieldPB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quickSand)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Door3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.key3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,6 +543,9 @@
         private System.Windows.Forms.PictureBox Roof2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.PictureBox Door3;
+        private System.Windows.Forms.PictureBox key3;
+        private System.Windows.Forms.Label equippedLbl;
     }
 }
 

@@ -18,7 +18,7 @@ namespace FinalProject
             InitializeComponent();
         }
 
-        bool characterLeft, characterRight, characterUp, characterDown, keyActivate, doorUnLock;
+        bool characterLeft, characterRight, characterUp, characterDown, keyActivate, doorUnLock, winDoor;
         
         
         Random random = new Random();
@@ -242,8 +242,17 @@ namespace FinalProject
 
                 }
             }//end of key2
+            if (playerCharacter.Bounds.IntersectsWith(key3.Bounds))
+            {
+                if (key3.Visible == true)
+                {
+                    keyCount += 1;
+                    key3.Visible = false;
+
+                }
+            }//end of key3
             //Door1
-                if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterLeft == true)
+            if (playerCharacter.Bounds.IntersectsWith(Door1.Bounds) && characterLeft == true)
                 {
                     if (keyActivate == true && keyCount >= 1)
                     {
@@ -384,10 +393,105 @@ namespace FinalProject
 
             }//End of Door2 code
 
+            if (playerCharacter.Bounds.IntersectsWith(Door3.Bounds) && characterLeft == true)
+            {
+                if (keyActivate == true && keyCount >= 3)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door3.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                    winDoor = true;
+                }
+                if(winDoor == true)
+                {
+                    playerMoveTime.Enabled = false;
+                    MessageBox.Show("You Escaped", "Congratulations!");
+                }
+                else
+                {
+                    playerCharacter.Left += playerSpeed;
+                }
+            }
+            else if (playerCharacter.Bounds.IntersectsWith(Door3.Bounds) && characterRight == true)
+            {
+                if (keyActivate == true && keyCount >= 3)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door3.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                    winDoor = true;
+                }
+                if (winDoor == true)
+                {
+                    playerMoveTime.Enabled = false;
+                    MessageBox.Show("You Escaped", "Congratulations!");
+                }
+                else
+                {
+                    playerCharacter.Left -= playerSpeed;
+                }
+            }
+            else if (playerCharacter.Bounds.IntersectsWith(Door3.Bounds) && characterUp == true)
+            {
+                if (keyActivate == true && keyCount >= 3)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door3.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                    winDoor = true;
+                }
+                if (winDoor == true)
+                {
+                    playerMoveTime.Enabled = false;
+                    MessageBox.Show("You Escaped", "Congratulations!");
+                }
+                else
+                {
+                    playerCharacter.Top += playerSpeed;
+                }
+            }
+            else if (playerCharacter.Bounds.IntersectsWith(Door3.Bounds) && characterDown == true)
+            {
+                if (keyActivate == true && keyCount >= 3)
+                {
+                    doorUnLock = true;
+                }
+                if (doorUnLock == true)
+                {
+                    Door3.Visible = false;
+                    doorTime.Enabled = false;
+                    doorTime.Enabled = true;
+                    winDoor = true;
+                }
+                if (winDoor == true)
+                {
+                    playerMoveTime.Enabled = false;
+                    MessageBox.Show("You Escaped", "Congratulations!");
+                }
+                else
+                {
+                    playerCharacter.Top -= playerSpeed;
+                }
+
+            }//end Win Door
+
+
             //ADD SWORD & SHIELD HITPOINTS
 
             //pick up sword and shield
-           if (playerCharacter.Bounds.IntersectsWith(swordPB.Bounds))
+            if (playerCharacter.Bounds.IntersectsWith(swordPB.Bounds))
            {
                 swordPB.Visible = false;
                 inventorySlot1.BackColor = Color.Violet;
@@ -455,6 +559,7 @@ namespace FinalProject
             {
                 if (inventorySword == true)
                 {
+                    equippedLbl.Text = "Sword Equipped";
                     weaponequip = true;
                     inventorySlot1.BackColor = Color.White;
                 }
@@ -464,6 +569,7 @@ namespace FinalProject
             {
                 if (inventoryShield == true)
                 {
+                    equippedLbl.Text = "Shield Equipped";
                     sheild = true;
                     inventorySlot2.BackColor = Color.White;
                 }
