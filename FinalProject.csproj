@@ -104,5 +104,20 @@
   <ItemGroup>
     <None Include="Resources\CS 114 Sword.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Painstaking_Dungeon_Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CS 114 key 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundDoor%28Horizontal%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundDoor%28Vertical%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundRoof.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

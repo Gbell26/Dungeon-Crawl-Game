@@ -39,13 +39,8 @@ namespace FinalProject
         int changeDir = 0;
 
         int monsterSpeed = 3;
+        int playerSpeed = 10;
 
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
-        int playerSpeed = 5;
 
         private void doorTime_Tick(object sender, EventArgs e)
         {
@@ -90,7 +85,8 @@ namespace FinalProject
 
             //enemy movement
 
-            if (Math.Abs(monster.Left-playerCharacter.Left) <= 20 || Math.Abs(monster.Top - playerCharacter.Top) <= 20){
+            if (Math.Abs(monster.Left-playerCharacter.Left) <= 30 ||
+                Math.Abs(monster.Top - playerCharacter.Top) <= 30){
                 if (monster.Left <= playerCharacter.Left)
                 {
                     monster.Left += monsterSpeed;
@@ -276,7 +272,7 @@ namespace FinalProject
                //End of Door code
 
 
-            if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterDown == true)
+            if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterLeft == true)
             {
                 if (keyActivate == true && keyCount >= 1)
                 {
@@ -290,11 +286,11 @@ namespace FinalProject
                 }
                 else
                 {
-                    playerCharacter.Top -= playerSpeed;
+                    playerCharacter.Left += playerSpeed;
                 }
             }
             
-            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterUp == true)
+            else if (playerCharacter.Bounds.IntersectsWith(Door2.Bounds) && characterRight == true)
             {
                 if (keyActivate == true && keyCount >= 1)
                 {
@@ -308,7 +304,7 @@ namespace FinalProject
                 }
                 else
                 {
-                    playerCharacter.Top += playerSpeed;
+                    playerCharacter.Left -= playerSpeed;
                 }
             }
             //End of Door2 code
@@ -425,7 +421,8 @@ namespace FinalProject
 
 
             //quicksand trap
-            if (playerCharacter.Bounds.IntersectsWith(quickSand.Bounds))
+            if (playerCharacter.Bounds.IntersectsWith(quickSand.Bounds) || playerCharacter.Bounds.IntersectsWith(quickSand2.Bounds)
+                || playerCharacter.Bounds.IntersectsWith(quickSand3.Bounds))
             {
                 playerSpeed = 2;
             }
@@ -494,10 +491,7 @@ namespace FinalProject
                     inventorySlot2.Visible=false;
                     inventoryShield = false;
                 }
-            }
-
-           
-
+            }   
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)

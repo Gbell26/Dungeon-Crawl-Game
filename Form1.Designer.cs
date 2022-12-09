@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.playerMoveTime = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -63,6 +62,17 @@
             this.Door3 = new System.Windows.Forms.PictureBox();
             this.key3 = new System.Windows.Forms.PictureBox();
             this.equippedLbl = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.quickSand2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.quickSand3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inventorySlot1)).BeginInit();
@@ -84,12 +94,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Door3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.key3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quickSand2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quickSand3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.SuspendLayout();
             // 
             // playerMoveTime
             // 
             this.playerMoveTime.Enabled = true;
-            this.playerMoveTime.Interval = 1;
+            this.playerMoveTime.Interval = 50;
             this.playerMoveTime.Tick += new System.EventHandler(this.playerMoveTime_Tick);
             // 
             // panel1
@@ -216,8 +237,10 @@
             // 
             // key1
             // 
-            this.key1.BackColor = System.Drawing.Color.Yellow;
-            this.key1.Location = new System.Drawing.Point(81, 649);
+            this.key1.BackColor = System.Drawing.Color.Transparent;
+            this.key1.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_key_2;
+            this.key1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.key1.Location = new System.Drawing.Point(304, 316);
             this.key1.Margin = new System.Windows.Forms.Padding(4);
             this.key1.Name = "key1";
             this.key1.Size = new System.Drawing.Size(27, 27);
@@ -230,32 +253,31 @@
             this.roof1.BackColor = System.Drawing.Color.Transparent;
             this.roof1.BackgroundImage = global::FinalProject.Properties.Resources.roof2;
             this.roof1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.roof1.Location = new System.Drawing.Point(2, 582);
+            this.roof1.Location = new System.Drawing.Point(23, 248);
             this.roof1.Margin = new System.Windows.Forms.Padding(4);
             this.roof1.Name = "roof1";
-            this.roof1.Size = new System.Drawing.Size(421, 173);
+            this.roof1.Size = new System.Drawing.Size(421, 301);
             this.roof1.TabIndex = 4;
             this.roof1.TabStop = false;
             this.roof1.Tag = "Roof";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox3.BackgroundImage = global::FinalProject.Properties.Resources.cobblestones;
-            this.pictureBox3.Location = new System.Drawing.Point(-80, 756);
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Location = new System.Drawing.Point(275, 536);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(524, 19);
+            this.pictureBox3.Size = new System.Drawing.Size(169, 41);
             this.pictureBox3.TabIndex = 3;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "Wall";
             // 
             // playerCharacter
             // 
-            this.playerCharacter.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.playerCharacter.BackColor = System.Drawing.Color.DarkGray;
             this.playerCharacter.BackgroundImage = global::FinalProject.Properties.Resources.Cooper_Avatar_Small_2__2_;
             this.playerCharacter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.playerCharacter.Location = new System.Drawing.Point(664, 649);
+            this.playerCharacter.Location = new System.Drawing.Point(576, 725);
             this.playerCharacter.Margin = new System.Windows.Forms.Padding(4);
             this.playerCharacter.Name = "playerCharacter";
             this.playerCharacter.Size = new System.Drawing.Size(39, 61);
@@ -265,9 +287,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox2.BackgroundImage = global::FinalProject.Properties.Resources.cobblestones;
-            this.pictureBox2.Location = new System.Drawing.Point(-63, 565);
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Location = new System.Drawing.Point(12, 218);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(419, 22);
@@ -277,22 +298,23 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox1.BackgroundImage = global::FinalProject.Properties.Resources.cobblestones;
-            this.pictureBox1.Location = new System.Drawing.Point(424, 565);
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Location = new System.Drawing.Point(406, 221);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 210);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 366);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "Wall";
             // 
             // Door1
             // 
-            this.Door1.BackColor = System.Drawing.Color.Red;
-            this.Door1.Location = new System.Drawing.Point(350, 565);
+            this.Door1.BackColor = System.Drawing.Color.Transparent;
+            this.Door1.BackgroundImage = global::FinalProject.Properties.Resources.BackgroundDoor_Horizontal_;
+            this.Door1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Door1.Location = new System.Drawing.Point(168, 548);
             this.Door1.Name = "Door1";
-            this.Door1.Size = new System.Drawing.Size(80, 22);
+            this.Door1.Size = new System.Drawing.Size(100, 29);
             this.Door1.TabIndex = 8;
             this.Door1.TabStop = false;
             this.Door1.Tag = "Door";
@@ -305,42 +327,44 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox6.BackgroundImage = global::FinalProject.Properties.Resources.cobblestones;
-            this.pictureBox6.Location = new System.Drawing.Point(240, 0);
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Location = new System.Drawing.Point(1207, 280);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(19, 210);
+            this.pictureBox6.Size = new System.Drawing.Size(19, 443);
             this.pictureBox6.TabIndex = 9;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "Wall";
             // 
             // pictureBox7
             // 
-            this.pictureBox7.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pictureBox7.BackgroundImage = global::FinalProject.Properties.Resources.cobblestones;
-            this.pictureBox7.Location = new System.Drawing.Point(1, 193);
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.Location = new System.Drawing.Point(921, 271);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(184, 20);
+            this.pictureBox7.Size = new System.Drawing.Size(305, 47);
             this.pictureBox7.TabIndex = 10;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Tag = "Wall";
             // 
             // Door2
             // 
-            this.Door2.BackColor = System.Drawing.Color.Red;
-            this.Door2.Location = new System.Drawing.Point(182, 193);
+            this.Door2.BackColor = System.Drawing.Color.Transparent;
+            this.Door2.BackgroundImage = global::FinalProject.Properties.Resources.BackgroundDoor_Vertical_;
+            this.Door2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Door2.Location = new System.Drawing.Point(915, 520);
             this.Door2.Name = "Door2";
-            this.Door2.Size = new System.Drawing.Size(61, 20);
+            this.Door2.Size = new System.Drawing.Size(35, 83);
             this.Door2.TabIndex = 11;
             this.Door2.TabStop = false;
             this.Door2.Tag = "Door2";
             // 
             // Key2
             // 
-            this.Key2.BackColor = System.Drawing.Color.Yellow;
-            this.Key2.Location = new System.Drawing.Point(31, 28);
+            this.Key2.BackColor = System.Drawing.Color.Transparent;
+            this.Key2.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_key_2;
+            this.Key2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Key2.Location = new System.Drawing.Point(1116, 654);
             this.Key2.Margin = new System.Windows.Forms.Padding(4);
             this.Key2.Name = "Key2";
             this.Key2.Size = new System.Drawing.Size(27, 27);
@@ -384,7 +408,7 @@
             this.swordPB.BackColor = System.Drawing.Color.Transparent;
             this.swordPB.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Sword;
             this.swordPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.swordPB.Location = new System.Drawing.Point(129, 62);
+            this.swordPB.Location = new System.Drawing.Point(1132, 340);
             this.swordPB.Name = "swordPB";
             this.swordPB.Size = new System.Drawing.Size(56, 85);
             this.swordPB.TabIndex = 17;
@@ -396,7 +420,7 @@
             this.shieldPB.BackColor = System.Drawing.Color.Transparent;
             this.shieldPB.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_Shield;
             this.shieldPB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.shieldPB.Location = new System.Drawing.Point(171, 625);
+            this.shieldPB.Location = new System.Drawing.Point(66, 280);
             this.shieldPB.Name = "shieldPB";
             this.shieldPB.Size = new System.Drawing.Size(72, 85);
             this.shieldPB.TabIndex = 19;
@@ -405,10 +429,10 @@
             // 
             // quickSand
             // 
-            this.quickSand.BackColor = System.Drawing.Color.SandyBrown;
-            this.quickSand.Location = new System.Drawing.Point(495, 392);
+            this.quickSand.BackColor = System.Drawing.Color.Transparent;
+            this.quickSand.Location = new System.Drawing.Point(23, 606);
             this.quickSand.Name = "quickSand";
-            this.quickSand.Size = new System.Drawing.Size(252, 75);
+            this.quickSand.Size = new System.Drawing.Size(115, 153);
             this.quickSand.TabIndex = 21;
             this.quickSand.TabStop = false;
             // 
@@ -417,28 +441,32 @@
             this.Roof2.BackColor = System.Drawing.Color.Transparent;
             this.Roof2.BackgroundImage = global::FinalProject.Properties.Resources.roof2;
             this.Roof2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Roof2.Location = new System.Drawing.Point(0, 0);
+            this.Roof2.Location = new System.Drawing.Point(957, 316);
             this.Roof2.Margin = new System.Windows.Forms.Padding(4);
             this.Roof2.Name = "Roof2";
-            this.Roof2.Size = new System.Drawing.Size(243, 193);
+            this.Roof2.Size = new System.Drawing.Size(243, 376);
             this.Roof2.TabIndex = 12;
             this.Roof2.TabStop = false;
             this.Roof2.Tag = "Roof";
             // 
             // Door3
             // 
-            this.Door3.BackColor = System.Drawing.Color.Red;
-            this.Door3.Location = new System.Drawing.Point(602, 18);
+            this.Door3.BackColor = System.Drawing.Color.Transparent;
+            this.Door3.BackgroundImage = global::FinalProject.Properties.Resources.BackgroundDoor_Horizontal_;
+            this.Door3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Door3.Location = new System.Drawing.Point(554, 3);
             this.Door3.Name = "Door3";
-            this.Door3.Size = new System.Drawing.Size(61, 20);
+            this.Door3.Size = new System.Drawing.Size(162, 35);
             this.Door3.TabIndex = 22;
             this.Door3.TabStop = false;
             this.Door3.Tag = "winDoor";
             // 
             // key3
             // 
-            this.key3.BackColor = System.Drawing.Color.Yellow;
-            this.key3.Location = new System.Drawing.Point(763, 560);
+            this.key3.BackColor = System.Drawing.Color.Transparent;
+            this.key3.BackgroundImage = global::FinalProject.Properties.Resources.CS_114_key_2;
+            this.key3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.key3.Location = new System.Drawing.Point(113, 120);
             this.key3.Name = "key3";
             this.key3.Size = new System.Drawing.Size(25, 27);
             this.key3.TabIndex = 23;
@@ -454,17 +482,135 @@
             this.equippedLbl.Size = new System.Drawing.Size(0, 29);
             this.equippedLbl.TabIndex = 24;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 548);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(169, 29);
+            this.pictureBox4.TabIndex = 25;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Tag = "Wall";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.Location = new System.Drawing.Point(-19, 221);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(38, 366);
+            this.pictureBox5.TabIndex = 26;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Tag = "Wall";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.Location = new System.Drawing.Point(921, 271);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(36, 226);
+            this.pictureBox8.TabIndex = 27;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Tag = "Wall";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.Location = new System.Drawing.Point(929, 689);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(297, 44);
+            this.pictureBox9.TabIndex = 28;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Tag = "Wall";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.Location = new System.Drawing.Point(921, 610);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(36, 113);
+            this.pictureBox10.TabIndex = 29;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Tag = "Wall";
+            // 
+            // quickSand2
+            // 
+            this.quickSand2.BackColor = System.Drawing.Color.Transparent;
+            this.quickSand2.Location = new System.Drawing.Point(538, 44);
+            this.quickSand2.Name = "quickSand2";
+            this.quickSand2.Size = new System.Drawing.Size(115, 71);
+            this.quickSand2.TabIndex = 30;
+            this.quickSand2.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Location = new System.Drawing.Point(182, 247);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(80, 128);
+            this.pictureBox11.TabIndex = 31;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Tag = "Wall";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.Location = new System.Drawing.Point(681, 689);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(115, 87);
+            this.pictureBox12.TabIndex = 32;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Tag = "Wall";
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.Location = new System.Drawing.Point(576, 306);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(115, 37);
+            this.pictureBox13.TabIndex = 33;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Tag = "Wall";
+            // 
+            // quickSand3
+            // 
+            this.quickSand3.BackColor = System.Drawing.Color.Transparent;
+            this.quickSand3.Location = new System.Drawing.Point(734, 51);
+            this.quickSand3.Name = "quickSand3";
+            this.quickSand3.Size = new System.Drawing.Size(86, 80);
+            this.quickSand3.TabIndex = 34;
+            this.quickSand3.TabStop = false;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox15.Location = new System.Drawing.Point(1071, 415);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(129, 111);
+            this.pictureBox15.TabIndex = 35;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.Tag = "Wall";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::FinalProject.Properties.Resources.Painstaking_Dungeon_Background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1239, 886);
+            this.Controls.Add(this.pictureBox13);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.monster);
             this.Controls.Add(this.equippedLbl);
-            this.Controls.Add(this.key3);
             this.Controls.Add(this.Door3);
             this.Controls.Add(this.healthLabel);
             this.Controls.Add(this.label1);
@@ -480,15 +626,21 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Key2);
-            this.Controls.Add(this.quickSand);
             this.Controls.Add(this.shieldPB);
             this.Controls.Add(this.swordPB);
             this.Controls.Add(this.key1);
+            this.Controls.Add(this.quickSand2);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.pictureBox15);
+            this.Controls.Add(this.quickSand3);
+            this.Controls.Add(this.key3);
+            this.Controls.Add(this.quickSand);
+            this.Controls.Add(this.pictureBox12);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -512,6 +664,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.Roof2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Door3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.key3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quickSand2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quickSand3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -552,6 +715,17 @@
         private System.Windows.Forms.PictureBox Door3;
         private System.Windows.Forms.PictureBox key3;
         private System.Windows.Forms.Label equippedLbl;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox quickSand2;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox quickSand3;
+        private System.Windows.Forms.PictureBox pictureBox15;
     }
 }
 

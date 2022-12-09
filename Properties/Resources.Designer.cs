@@ -63,6 +63,36 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackgroundDoor_Horizontal_ {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundDoor_Horizontal_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackgroundDoor_Vertical_ {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundDoor_Vertical_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BackgroundRoof {
+            get {
+                object obj = ResourceManager.GetObject("BackgroundRoof", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cobblestones {
             get {
                 object obj = ResourceManager.GetObject("cobblestones", resourceCulture);
@@ -103,6 +133,16 @@ namespace FinalProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CS_114_key_2 {
+            get {
+                object obj = ResourceManager.GetObject("CS_114_key_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CS_114_Shield {
             get {
                 object obj = ResourceManager.GetObject("CS_114_Shield", resourceCulture);
@@ -116,6 +156,16 @@ namespace FinalProject.Properties {
         internal static System.Drawing.Bitmap CS_114_Sword {
             get {
                 object obj = ResourceManager.GetObject("CS_114_Sword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Painstaking_Dungeon_Background {
+            get {
+                object obj = ResourceManager.GetObject("Painstaking_Dungeon_Background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
